@@ -1,0 +1,31 @@
+package message;
+
+/**
+ * @author Barth
+ */
+public class MessageGetConversas extends MessageSendBase {
+
+    private String username;
+
+    public String getUsername() {
+        return username;
+    }
+
+    public MessageGetConversas setUsername(String username) {
+        this.username = username;
+        return this;
+    }
+    
+    @Override
+    protected String getId() {
+        return "getConversas";
+    }
+
+    @Override
+    protected String[] getParams() {
+        return new String[]{
+            this.getUsername()
+        };
+    }
+    
+}
