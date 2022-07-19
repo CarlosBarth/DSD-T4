@@ -34,7 +34,10 @@ Cliente -> Servidor
 - Mensagens trocadas nas conversas
 
 
-
+Padrões:
+- Singletom
+- Factory
+- Strategy
 
 
 
