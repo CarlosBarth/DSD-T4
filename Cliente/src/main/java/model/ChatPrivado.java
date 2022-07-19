@@ -3,7 +3,7 @@ package model;
 /**
  * @author Barth
  */
-public class ConversaPrivada extends Conversa {
+public class ChatPrivado extends Chat {
     
     private Usuario usuario1;
     private Usuario usuario2;
@@ -15,7 +15,7 @@ public class ConversaPrivada extends Conversa {
         return this.usuario1;
     }
 
-    public ConversaPrivada setUsuario1(Usuario usuario1) {
+    public ChatPrivado setUsuario1(Usuario usuario1) {
         this.usuario1 = usuario1;
         return this;
     }
@@ -27,7 +27,7 @@ public class ConversaPrivada extends Conversa {
         return this.usuario2;
     }
 
-    public ConversaPrivada setUsuario2(Usuario usuario2) {
+    public ChatPrivado setUsuario2(Usuario usuario2) {
         this.usuario2 = usuario2;
         return this;
     }

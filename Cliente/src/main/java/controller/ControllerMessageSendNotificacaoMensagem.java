@@ -1,7 +1,7 @@
 package controller;
 
 import message.MessageSendNotificacaoMensagem;
-import model.Conversa;
+import model.Chat;
 
 /**
  * @author Barth
@@ -19,7 +19,7 @@ public class ControllerMessageSendNotificacaoMensagem extends ControllerMessageR
             ControllerMain controllerIndex = ControllerMain.getInstance();
             controllerIndex.getView()
                     .getTableModel()
-                    .addNotificacaoMensagemNova(new Conversa()
+                    .addNotificacaoMensagemNova(new Chat()
                             .setId(this.getMessageBase().getConversa()));
         }
     }

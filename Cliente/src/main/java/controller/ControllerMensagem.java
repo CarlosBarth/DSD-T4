@@ -11,7 +11,7 @@ import java.util.Date;
 import javax.swing.JOptionPane;
 import message.MessageGetMensagens;
 import message.MessageSendMensagem;
-import model.Conversa;
+import model.Chat;
 import model.Mensagem;
 import model.Usuario;
 import utils.Connection;
@@ -24,7 +24,7 @@ public class ControllerMensagem extends ControllerPadrao<ViewMensagem>{
 
     static private ControllerMensagem instance;
     
-    private Conversa conversa;
+    private Chat conversa;
     
     private ControllerMensagem() {
         
@@ -55,11 +55,11 @@ public class ControllerMensagem extends ControllerPadrao<ViewMensagem>{
         this.addActionListenersWindow(view);
     }
     
-    public Conversa getConversa() {
+    public Chat getConversa() {
         return conversa;
     }
 
-    public ControllerMensagem setConversa(Conversa conversa) {
+    public ControllerMensagem setConversa(Chat conversa) {
         this.conversa = conversa;
         return this;
     }
@@ -123,7 +123,7 @@ public class ControllerMensagem extends ControllerPadrao<ViewMensagem>{
         });
     }
 
-    private String getMensagens(Conversa conversa) {
+    private String getMensagens(Chat conversa) {
         ArrayList<String> mensagens = new ArrayList<>();
         
         try {
@@ -166,7 +166,7 @@ public class ControllerMensagem extends ControllerPadrao<ViewMensagem>{
         return String.join("\n\n", mensagens);
     }
 
-    private boolean sendMessage(Mensagem mensagem, Conversa conversa) {
+    private boolean sendMessage(Mensagem mensagem, Chat conversa) {
         boolean retorno = false;
         
         try {

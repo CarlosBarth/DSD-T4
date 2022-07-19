@@ -12,7 +12,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import message.MessageGetUsuarios;
 import message.MessageNewConversaGrupo;
-import model.Conversa;
+import model.Chat;
 import model.Usuario;
 import utils.Connection;
 import view.TableModelUsuarioConversaGrupo;
@@ -82,7 +82,7 @@ public class ControllerConversaGrupoCadastro extends ControllerPadrao<ViewConver
                     JOptionPane.showMessageDialog(this.getView(), "Selecione um ou mais usuários para começar a conversa", "Informação", JOptionPane.ERROR_MESSAGE);
                 }
                 else {
-                    Conversa conversa = this.newConversaGrupo(titulo, usuarios);
+                    Chat conversa = this.newConversaGrupo(titulo, usuarios);
 
                     if (conversa != null) {
                         ControllerMain.getInstance().getView().getTableModel().addConversa(conversa);
@@ -157,8 +157,8 @@ public class ControllerConversaGrupoCadastro extends ControllerPadrao<ViewConver
                 .collect(Collectors.toCollection(ArrayList::new));
     } 
 
-    private Conversa newConversaGrupo(String titulo, ArrayList<Usuario> usuarios) {
-        Conversa conversa = null;
+    private Chat newConversaGrupo(String titulo, ArrayList<Usuario> usuarios) {
+        Chat conversa = null;
         
         try {
             try (Socket socket = (new Connection()).getInstanceSocket()) {
@@ -180,7 +180,7 @@ public class ControllerConversaGrupoCadastro extends ControllerPadrao<ViewConver
                     JOptionPane.showMessageDialog(this.getView(), "Houve um erro ao buscar o usuário", "Erro", JOptionPane.ERROR_MESSAGE);
                 }
                 else {
-                    conversa = new Conversa()
+                    conversa = new Chat()
                             .setId(response)
                             .setTitulo(titulo);
                 }

@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import message.MessageGetConversas;
-import model.Conversa;
+import model.Chat;
 import model.Usuario;
 import utils.Connection;
 import view.ViewMain;
@@ -101,21 +101,21 @@ public class ControllerMain extends ControllerPadrao<ViewMain> {
                 Point point = mouseEvent.getPoint();
                 int row = table.rowAtPoint(point);
                 if (mouseEvent.getClickCount() == 2 && table.getSelectedRow() != -1) {
-                    Conversa conversa = ControllerMain.getInstance().getView().getTableModel().getConversas().get(row);
+                    Chat conversa = ControllerMain.getInstance().getView().getTableModel().getConversas().get(row);
                     abreConversa(conversa);
                 }
             }
         });
     }
     
-    private static void abreConversa(Conversa conversa) {
+    private static void abreConversa(Chat conversa) {
         ControllerMain.getInstance().getView().dispose();
         ControllerMain.getInstance().getView().getTableModel().resetNotificacoesConversa(conversa);
         ControllerMensagem.getInstance().setConversa(conversa).abreTela();
     }
     
-    private ArrayList<Conversa> getConversas() {
-        ArrayList<Conversa> conversas = new ArrayList<>();
+    private ArrayList<Chat> getConversas() {
+        ArrayList<Chat> conversas = new ArrayList<>();
         
         try {
             try (Socket socket = (new Connection()).getInstanceSocket()) {
@@ -132,7 +132,7 @@ public class ControllerMain extends ControllerPadrao<ViewMain> {
                     for (String line : responseLines) {
                         String[] linePieces = line.split(";");
                         
-                        conversas.add(new Conversa()
+                        conversas.add(new Chat()
                                 .setId(linePieces[0])
                                 .setTitulo(linePieces[1])
                                 .setMensagensNovas(Integer.parseInt(linePieces[2])));

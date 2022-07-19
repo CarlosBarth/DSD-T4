@@ -3,34 +3,34 @@ package view;
 import java.util.ArrayList;
 import java.util.stream.IntStream;
 import javax.swing.table.AbstractTableModel;
-import model.Conversa;
+import model.Chat;
 
 /**
  * @author Barth
  */
 public class TableModelConversas extends AbstractTableModel {
 
-    private final ArrayList<Conversa> conversas;
+    private final ArrayList<Chat> conversas;
 
     public TableModelConversas() {
         this.conversas = new ArrayList<>();
     }
     
-    public TableModelConversas(ArrayList<Conversa> conversas) {
+    public TableModelConversas(ArrayList<Chat> conversas) {
         this.conversas = conversas;
     }
 
-    public ArrayList<Conversa> getConversas() {
+    public ArrayList<Chat> getConversas() {
         return conversas;
     }
 
-    public void addConversa(Conversa conversa) {
+    public void addConversa(Chat conversa) {
         this.getConversas().add(conversa);
         int i = this.getConversas().indexOf(conversa);
         this.fireTableRowsInserted(i, i);
     }
     
-    public void addNotificacaoMensagemNova(Conversa conversa) {
+    public void addNotificacaoMensagemNova(Chat conversa) {
         int index = this.getIndexOf(conversa);
 
         if (index >= 0) {
@@ -39,7 +39,7 @@ public class TableModelConversas extends AbstractTableModel {
         }
     }
     
-    public void resetNotificacoesConversa(Conversa conversa) {
+    public void resetNotificacoesConversa(Chat conversa) {
         int index = this.getIndexOf(conversa);
 
         if (index >= 0) {
@@ -48,7 +48,7 @@ public class TableModelConversas extends AbstractTableModel {
         }
     }
     
-    private int getIndexOf(Conversa conversa) {
+    private int getIndexOf(Chat conversa) {
         return IntStream.range(0, this.getRowCount())
                 .filter(i -> this.getConversas().get(i).getId().equals(conversa.getId()))
                 .findFirst()
@@ -75,7 +75,7 @@ public class TableModelConversas extends AbstractTableModel {
 
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
-        Conversa conversa = this.getConversas().get(rowIndex);
+        Chat conversa = this.getConversas().get(rowIndex);
         switch (columnIndex) {
             case 0: return conversa.getTitulo();
             default: return null;

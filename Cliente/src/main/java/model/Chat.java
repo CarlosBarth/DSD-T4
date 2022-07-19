@@ -6,7 +6,7 @@ import java.util.List;
 /**
  * @author Barth
  */
-public class Conversa {
+public class Chat {
     
     private String id;
     private String titulo;
@@ -17,7 +17,7 @@ public class Conversa {
         return this.id;
     }
 
-    public Conversa setId(String id) {
+    public Chat setId(String id) {
         this.id = id;
         return this;
     }
@@ -26,7 +26,7 @@ public class Conversa {
         return this.titulo;
     }
 
-    public Conversa setTitulo(String titulo) {
+    public Chat setTitulo(String titulo) {
         this.titulo = titulo;
         return this;
     }
@@ -38,12 +38,12 @@ public class Conversa {
         return this.mensagens;
     }
 
-    public Conversa setMensagens(List<Mensagem> mensagens) {
+    public Chat setMensagens(List<Mensagem> mensagens) {
         this.mensagens = mensagens;
         return this;
     }
 
-    public Conversa addMensagem(Mensagem mensagem) {
+    public Chat addMensagem(Mensagem mensagem) {
         this.mensagens.add(mensagem);
         return this;
     }
@@ -52,7 +52,7 @@ public class Conversa {
         return mensagensNovas;
     }
 
-    public Conversa setMensagensNovas(int mensagensNovas) {
+    public Chat setMensagensNovas(int mensagensNovas) {
         this.mensagensNovas = mensagensNovas;
         return this;
     }

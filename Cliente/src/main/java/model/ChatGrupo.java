@@ -6,7 +6,7 @@ import java.util.Map;
 /**
  * @author Barth
  */
-public class ConversaGrupo extends Conversa {
+public class ChatGrupo extends Chat {
     
     private Map<String, Usuario> usuarios;
     

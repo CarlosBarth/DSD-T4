@@ -10,7 +10,7 @@ import java.util.stream.Collectors;
 import javax.swing.JOptionPane;
 import message.MessageGetUsuarios;
 import message.MessageNewConversaPrivada;
-import model.Conversa;
+import model.Chat;
 import model.Usuario;
 import utils.Connection;
 import view.ViewConversaUsuarioCadastro;
@@ -41,7 +41,7 @@ public class ControllerConversaUsuarioCadastro extends ControllerPadrao<ViewConv
             else {
                 Usuario usuario = this.getView().getListUsuarios().getItemAt(selectedIndex);
                 
-                Conversa conversa = this.newConversaPrivada(usuario);
+                Chat conversa = this.newConversaPrivada(usuario);
                 
                 if (conversa != null) {
                     ControllerMain.getInstance().getView().getTableModel().addConversa(conversa);
@@ -80,8 +80,8 @@ public class ControllerConversaUsuarioCadastro extends ControllerPadrao<ViewConv
         });
     }
 
-    private Conversa newConversaPrivada(Usuario usuario) {
-        Conversa conversa = null;
+    private Chat newConversaPrivada(Usuario usuario) {
+        Chat conversa = null;
         
         try {
             try (Socket socket = (new Connection()).getInstanceSocket()) {
@@ -101,7 +101,7 @@ public class ControllerConversaUsuarioCadastro extends ControllerPadrao<ViewConv
                     JOptionPane.showMessageDialog(this.getView(), "Vocês já tem uma conversa ativa", "Informação", JOptionPane.INFORMATION_MESSAGE);
                 }
                 else {
-                    conversa = new Conversa()
+                    conversa = new Chat()
                             .setId(response)
                             .setTitulo(usuario.getNome());
                 }
