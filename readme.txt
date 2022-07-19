@@ -27,8 +27,6 @@ Servidor -> Cliente
 - Autenticação de usuário
 - Quanidade de conversas do usuário logado (no ato do log in)
 
-
-
 Cliente -> Servidor
 - Solicitaçao de autenticação de usuário
 - Login de usuário contendo as iformações do usuário logado
