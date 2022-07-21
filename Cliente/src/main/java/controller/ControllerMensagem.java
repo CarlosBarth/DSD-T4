@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 import javax.swing.JOptionPane;
-import message.MessageGetMensagens;
+import message.MessageMensagens;
 import message.MessageSendMensagem;
 import model.Chat;
 import model.Mensagem;
@@ -128,7 +128,7 @@ public class ControllerMensagem extends ControllerPadrao<ViewMensagem>{
         
         try {
             try (Socket socket = (new Connection()).getInstanceSocket()) {
-                MessageGetMensagens messageGetMensagens = new MessageGetMensagens()
+                MessageMensagens messageGetMensagens = new MessageMensagens()
                         .setConversa(conversa.getId())
                         .setUsuario(ControllerMain.getInstance().getUsuarioLogado().getUsername());
                 socket.getOutputStream().write(messageGetMensagens.getMessageBytes());

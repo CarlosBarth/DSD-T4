@@ -3,7 +3,7 @@ package message;
 /**
  * @author Barth
  */
-public class MessageGetMensagens extends MessageSendBase {
+public class MessageMensagens extends MessageSendBase {
 
     private String conversa;
     private String usuario;
@@ -12,7 +12,7 @@ public class MessageGetMensagens extends MessageSendBase {
         return conversa;
     }
 
-    public MessageGetMensagens setConversa(String conversa) {
+    public MessageMensagens setConversa(String conversa) {
         this.conversa = conversa;
         return this;
     }
@@ -21,14 +21,14 @@ public class MessageGetMensagens extends MessageSendBase {
         return usuario;
     }
 
-    public MessageGetMensagens setUsuario(String usuario) {
+    public MessageMensagens setUsuario(String usuario) {
         this.usuario = usuario;
         return this;
     }
     
     @Override
     protected String getId() {
-        return "getMensagens";
+        return "Mensagens";
     }
 
     @Override
